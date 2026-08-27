@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'ENV', choices: ['qa', 'stage'])
+        choice(name: 'SUITE', choices: ['smoke', 'regression', 'all'])
+        choice(name: 'BROWSER', choices: ['chromium', 'firefox', 'webkit'])
+        booleanParam(name: 'SKIP_OPTIONAL', defaultValue: false)
+    }
+    stages {
+        stage('Setup') {
+            steps {
+                bat '''
+                    if not exist .venv python -m venv .venv
+                    call .venv\\Scripts\\activate
+                    pip install -r requirements.txt
+                    playwright install chromium
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    def marker = params.SUITE == 'all' ? '' : "-m ${params.SUITE}"
+                    def skipOptional = params.SKIP_OPTIONAL ? '--skip-optional' : ''
+                    bat """
+                        call .venv\\Scripts\\activate
+                        pytest --env=${params.ENV} --browser-name=${params.BROWSER} ${marker} ${skipOptional} -n auto --alluredir=allure-results --junitxml=junit.xml
+                    """
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'artifacts/**/*,allure-results/**/*', allowEmptyArchive: true
+            junit testResults: 'junit.xml', allowEmptyResults: true
+        }
+    }
+}
