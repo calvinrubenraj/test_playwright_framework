@@ -1,3 +1,63 @@
+# RR - QA - Automation Assignment
+
+# Test plan Test case Document
+filename: `RR – QA - Automation Assignment.pdf`
+
+# Test report
+- Unzip `rr-allure-report.zip`
+- Open `index.html` in browser`
+
+## Test Result status
+|Test ID|        Test Name        | Status |
+| :--- |:-----------------------:|-------:|
+|001| Verify Popular Category |   Pass |
+|002|Verify Trending Category |   Pass |
+|003| Verify Newest Category  |   Fail |
+|004|Verify Top rated Category|   Pass |
+|005|Search/Filter Using Valid Title|   Pass |
+|006|Search/Filter Using Invalid Title|   Pass |
+|007|Filter Movies Types|   Pass |
+|008|Filter TV ShowsTypes|   Pass |
+|009|Filter by Valid Year range|   Fail |
+|010|Filter by Rating|   Pass |
+|011|Filter by Genre|   Pass |
+|012|Combination of Multiple Filters|   Fail |
+|013|Verify First Section pagination Functionality|   Pass |
+|014|Verify Last Section pagination Functionality|   Fail |
+|015|Verify Middle Section pagination Functionality|   Pass |
+|016|Verify Previous and Next button page Functionality|   Pass |
+|017|Direct Navigation to All Category|   Fail |
+
+- Total 17 test cases
+- Total 12 test cases pass
+- Total 5 test cases fail (2 Known issues)
+
+## Prerequisite to be installed
+- Python 3.8+
+- pip
+- Playwright
+- allure
+
+## Installation
+```bash
+pip install -r requirements.txt
+```
+## Setup
+create file `.env.rr`
+copy below content in file
+```text
+BASE_URL=https://tmdb-discover.surge.sh/
+API_BASE_URL=https://api.example.test
+USERNAME=test
+PASSWORD=test
+SLACK_WEBHOOK_URL=
+```
+## Run the framework
+```bash
+pytest --env=rr --show_browser --open-allure
+```
+
+
 # Playwright + Pytest Framework For UI and API automation
 
 This framework demonstrates a scalable UI + API automation architecture

@@ -11,7 +11,7 @@ from utils.api_validator import MovieAPIValidator
 @pytest.mark.ui
 @pytest.mark.smoke
 @allure.epic("UI")
-@allure.feature("Popular Page validation")
+@allure.feature("Verify Popular Category")
 def test_001_verify_popular_category(page: Page, settings):
     #page initialization
     popularpage = CategoryPage(page)
