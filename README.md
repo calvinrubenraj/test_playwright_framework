@@ -1,36 +1,18 @@
-# RR - QA - Automation Assignment
+# Playwright pytest automation framework 
+The project is designed as a reusable starting point for building scalable and maintainable test automation solutions.
 
-# Test plan Test case Document
-filename: `RR – QA - Automation Assignment.pdf`
+It includes capabilities such as:
 
-# Test report
-- Unzip `rr-allure-report.zip`
-- Open `index.html` in browser`
-
-## Test Result status
-|Test ID|        Test Name        | Status |
-| :--- |:-----------------------:|-------:|
-|001| Verify Popular Category |   Pass |
-|002|Verify Trending Category |   Pass |
-|003| Verify Newest Category  |   Fail |
-|004|Verify Top rated Category|   Pass |
-|005|Search/Filter Using Valid Title|   Pass |
-|006|Search/Filter Using Invalid Title|   Pass |
-|007|Filter Movies Types|   Pass |
-|008|Filter TV ShowsTypes|   Pass |
-|009|Filter by Valid Year range|   Fail |
-|010|Filter by Rating|   Pass |
-|011|Filter by Genre|   Pass |
-|012|Combination of Multiple Filters|   Fail |
-|013|Verify First Section pagination Functionality|   Pass |
-|014|Verify Last Section pagination Functionality|   Fail |
-|015|Verify Middle Section pagination Functionality|   Pass |
-|016|Verify Previous and Next button page Functionality|   Pass |
-|017|Direct Navigation to All Category|   Fail |
-
-- Total 17 test cases
-- Total 12 test cases pass
-- Total 5 test cases fail (2 Known issues)
+- ✅ Playwright + Pytest automation
+- ✅ Page Object Model
+- ✅ Reusable fixtures and utilities
+- ✅ Multi-environment configuration
+- ✅ Parallel test execution
+- ✅ Screenshots and trace collection
+- ✅ Allure reporting
+- ✅ Jenkins CI/CD integration
+- ✅ Slack execution notifications
+- ✅ Structured and extensible framework design
 
 ## Prerequisite to be installed
 - Python 3.8+
